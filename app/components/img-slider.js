@@ -1,0 +1,1 @@
+export { default } from 'comp-slider/components/img-slider';

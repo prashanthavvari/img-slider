@@ -1,0 +1,31 @@
+<div class="flex">
+  <div class="right-align" style="width: 25%;">
+    {{#if showSideArrows}}
+      <img onclick={{action "move" -1}} src="comp-slider/assets/arrow-right-rounded.svg">
+    {{/if}}
+  </div>
+  <div class="img-comp" style="width:50%;">
+    {{#each elementsArray as |content index|}}
+      <div class="display-img text-center {{content.classNameMain}}">
+        <span>{{content.no}}</span>
+      </div>
+    {{/each}}
+    {{#if displayPlay}}
+      <img src="comp-slider/assets/play.svg" style="position: absolute; left:10%;bottom: 45px;top:unset;" onclick={{action 'timer'}}>
+    {{/if}}
+  </div>
+  {{#if showSideArrows}}
+    <div class="left-align" style="width: 25%;">
+      <img onclick={{action "move" 1}} src="comp-slider/assets/arrow-right-rounded.svg">
+    </div>
+  {{/if}}
+</div>
+{{#if showSlider}}
+  <div class="slider-parent">
+    {{#each elementsArray as |content index|}}
+      {{#if (le index minDisplay)}}
+        <div class="slider-class {{content.className}}" onclick={{action "moveToIndex" index}}>{{content.no}}</div>
+      {{/if}}
+    {{/each}}
+  </div>
+{{/if}}
